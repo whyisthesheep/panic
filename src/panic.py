@@ -62,19 +62,21 @@ def remove(package):
 def main():
     parser = argparse.ArgumentParser(description="AUR wrapper tool for installing, searching, and upgrading packages")
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand", required=False)
-    install_parser = subparsers.add_parser("load", help="Install a package from AUR")
+    install_parser = subparsers.add_parser("install", help="Install a package from AUR")
     install_parser.add_argument("package", help="Name of the package to install")
     search_parser = subparsers.add_parser("check", help="Search for packages in AUR")
     search_parser.add_argument("keyword", help="Keyword to search for")
-    upgrade_parser = subparsers.add_parser("update", help="Upgrade all AUR packages")
+    upgrade_parser = subparsers.add_parser("upgrade", help="Upgrade all AUR packages")
     remove_parser = subparsers.add_parser("remove", help="Remove a package")
     remove_parser.add_argument("package", help="Name of the package to remove")
     args = parser.parse_args()
-    if args.subcommand in {"load"}:
+    if not args.subcommand:
+        upgrade()
+    elif args.subcommand in {"install"}:
         install(args.package)
     elif args.subcommand in {"check"}:
         search(args.keyword)
-    elif args.subcommand in {"update"}:
+    elif args.subcommand in {"upgrade"}:
         upgrade()
     elif args.subcommand in {"remove"}:
         remove(args.package)
