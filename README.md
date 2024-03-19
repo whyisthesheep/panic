@@ -1,8 +1,8 @@
 # panic
-## The scariest AUR Helper.
+The scariest AUR Helper.
 
 # Details
-Panic is a simple AUR/pacman wrapper made with python. This is not supposed to be a replacement for anything it's just a project I felt like making. 
+Panic is a simple AUR/pacman wrapper made with python. This is not supposed to be a replacement for anything it's more of a proof of concept for a fully featured AUR helper I could make.
 
 # Installation
 
