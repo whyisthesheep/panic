@@ -1,2 +1,2 @@
 # panic
-Panic package manager
+The scariest AUR Helper. 
