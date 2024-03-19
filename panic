@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Determine the directory where the main.py script is located
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+panic_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Execute the main.py script with the provided arguments
-python "$SCRIPT_DIR/main.py" "$@"
+python "$panic_dir/panic.py" "$@"
