@@ -16,12 +16,12 @@ def install(package):
                 print("Installation from AUR aborted.")
         else:
             print(f"Package '{package}' not found in the AUR.")
-            confirm = input(f"Do you want to install '{package}' using pacman? (Y/n): ").lower()
+            confirm = input(f"Do you want to attempt to install '{package}' with pacman? [Y/n]: ").lower()
             if confirm in {"y", ""}:
                 subprocess.run(["sudo", "pacman", "-S", "--noconfirm", package])
                 print(f"Package '{package}' installed successfully using pacman.")
             else:
-                print("Pacman installation aborted.")
+                print("Panic installation aborted.")
     except subprocess.CalledProcessError as e:
         print(f"Error occurred: {e}")
 
@@ -55,17 +55,17 @@ def upgrade():
 def main():
     parser = argparse.ArgumentParser(description="AUR wrapper tool for installing, searching, and upgrading packages")
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand", required=False)
-    install_parser = subparsers.add_parser("install", help="Install a package from AUR")
+    install_parser = subparsers.add_parser("scare", help="Install a package from AUR")
     install_parser.add_argument("package", help="Name of the package to install")
-    search_parser = subparsers.add_parser("search", help="Search for packages in AUR")
+    search_parser = subparsers.add_parser("seek", help="Search for packages in AUR")
     search_parser.add_argument("keyword", help="Keyword to search for")
-    upgrade_parser = subparsers.add_parser("upgrade", help="Upgrade all AUR packages")
+    upgrade_parser = subparsers.add_parser("run", help="Upgrade all AUR packages")
     args = parser.parse_args()
-    if args.subcommand in {"install"}:
+    if args.subcommand in {"scare"}:
         install(args.package)
-    elif args.subcommand in {"search"}:
+    elif args.subcommand in {"seek"}:
         search(args.keyword)
-    elif args.subcommand in {"upgrade"} or not args.subcommand:
+    elif args.subcommand in {"run"} or not args.subcommand:
         upgrade()
 
 if __name__ == "__main__":
