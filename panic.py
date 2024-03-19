@@ -55,17 +55,17 @@ def upgrade():
 def main():
     parser = argparse.ArgumentParser(description="AUR wrapper tool for installing, searching, and upgrading packages")
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand", required=False)
-    install_parser = subparsers.add_parser("scare", help="Install a package from AUR")
+    install_parser = subparsers.add_parser("load", help="Install a package from AUR")
     install_parser.add_argument("package", help="Name of the package to install")
-    search_parser = subparsers.add_parser("seek", help="Search for packages in AUR")
+    search_parser = subparsers.add_parser("check", help="Search for packages in AUR")
     search_parser.add_argument("keyword", help="Keyword to search for")
-    upgrade_parser = subparsers.add_parser("run", help="Upgrade all AUR packages")
+    upgrade_parser = subparsers.add_parser("update", help="Upgrade all AUR packages")
     args = parser.parse_args()
-    if args.subcommand in {"scare"}:
+    if args.subcommand in {"load"}:
         install(args.package)
-    elif args.subcommand in {"seek"}:
+    elif args.subcommand in {"check"}:
         search(args.keyword)
-    elif args.subcommand in {"run"} or not args.subcommand:
+    elif args.subcommand in {"update"} or not args.subcommand:
         upgrade()
 
 if __name__ == "__main__":
