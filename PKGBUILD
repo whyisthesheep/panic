@@ -7,7 +7,7 @@ url="https://github.com/whyisthesheep/panic"
 license=('GPL3')
 depends=('python' 'auracle-git')
 
-source=("https://github.com/yourusername/panic/releases/download/v$pkgver/panic-$pkgver.tar.gz")
+source=("https://github.com/whyisthesheep/panic/archive/refs/tags/$pkgver.tar.gz")
 
 package() {
     cd "$srcdir/panic-$pkgver"
