@@ -8,7 +8,7 @@ license=('GPL3')
 depends=('python' 'auracle-git')
 
 source=("https://github.com/whyisthesheep/panic/releases/download/$pkgver/panic-$pkgver.tar.gz")
-sha256sums=("7fef59f7743f45c12732f5bbc903a0db2bf655522eb3bdc8f1a11208a597d6a1")
+sha256sums=("2e669433e98a0636456701c67ff6ab6bd3d0e57b85ebc44d6ca7762633c357eb")
 
 package() {
 	cd "$srcdir"
