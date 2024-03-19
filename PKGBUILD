@@ -1,7 +1,7 @@
 pkgname=panic
-pkgver=1.1
-pkgrel=2
-pkgdesc="AUR helper tool for managing packages"
+pkgver=1.2
+pkgrel=3
+pkgdesc="The scariest AUR helper"
 arch=('any')
 url="https://github.com/whyisthesheep/panic"
 license=('GPL3')

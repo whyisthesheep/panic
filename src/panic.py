@@ -52,6 +52,13 @@ def upgrade():
         print(f"Error occurred: {e}")
 
 
+def remove(package):
+    try:
+        subprocess.run(["sudo", "pacman", "-R", "--noconfirm", package])
+        print(f"Package '{package}' removed successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error occurred: {e}")
+
 def main():
     parser = argparse.ArgumentParser(description="AUR wrapper tool for installing, searching, and upgrading packages")
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand", required=False)
@@ -60,13 +67,17 @@ def main():
     search_parser = subparsers.add_parser("check", help="Search for packages in AUR")
     search_parser.add_argument("keyword", help="Keyword to search for")
     upgrade_parser = subparsers.add_parser("update", help="Upgrade all AUR packages")
+    remove_parser = subparsers.add_parser("remove", help="Remove a package")
+    remove_parser.add_argument("package", help="Name of the package to remove")
     args = parser.parse_args()
     if args.subcommand in {"load"}:
         install(args.package)
     elif args.subcommand in {"check"}:
         search(args.keyword)
-    elif args.subcommand in {"update"} or not args.subcommand:
+    elif args.subcommand in {"update"}:
         upgrade()
+    elif args.subcommand in {"remove"}:
+        remove(args.package)
 
 if __name__ == "__main__":
     main()
