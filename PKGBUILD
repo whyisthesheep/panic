@@ -13,7 +13,7 @@ sha256sums=("7fef59f7743f45c12732f5bbc903a0db2bf655522eb3bdc8f1a11208a597d6a1")
 package() {
 	cd "$srcdir"
     
-    install -Dm755 main.py "$pkgdir/usr/bin/panic"
+    install -Dm755 panic.py "$pkgdir/usr/bin/panic.py"
 
     install -Dm755 panic "$pkgdir/usr/bin/panic"
 
