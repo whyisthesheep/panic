@@ -11,7 +11,7 @@ source=("https://github.com/whyisthesheep/panic/releases/download/$pkgver/panic-
 sha256sums=("5c71f436a332790b3c0df6af636c58ebb432bf106e43b1fe4295392c3874c46c")
 
 package() {
-    cd "$srcdir/panic-$pkgver"
+	cd "$srcdir"
     
     install -Dm755 main.py "$pkgdir/usr/bin/panic"
 
